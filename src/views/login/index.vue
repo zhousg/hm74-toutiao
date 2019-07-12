@@ -61,7 +61,7 @@ export default {
           // 提交登录请求  axios是基于primise封装的 post() 返回值一个promise对象
           this.$http
             .post(
-              'http://ttapi.research.itcast.cn/mp/v1_0/authorizations',
+              'authorizations',
               this.loginForm
             )
             .then(res => {
