@@ -10,6 +10,12 @@ import router from '@/router'
 
 // 导入axios
 import axios from 'axios'
+// 基准路径
+axios.defaults.baseURL = 'http://ttapi.research.itcast.cn/mp/v1_0/'
+// token认证
+axios.defaults.headers = {
+  Authorization: 'Bearer ' + JSON.parse(window.sessionStorage.getItem('hm74-toutiao')).token
+}
 Vue.prototype.$http = axios
 
 Vue.use(ELEMENT)
