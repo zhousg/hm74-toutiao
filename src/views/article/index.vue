@@ -3,10 +3,7 @@
     <!-- 筛选区域 -->
     <el-card>
       <div slot="header">
-        <el-breadcrumb separator-class="el-icon-arrow-right">
-          <el-breadcrumb-item :to="{ path: '/' }">首页</el-breadcrumb-item>
-          <el-breadcrumb-item>内容管理</el-breadcrumb-item>
-        </el-breadcrumb>
+        <my-bread>内容管理</my-bread>
       </div>
       <!-- 筛选表单 -->
       <el-form :model="reqParams" size="small" label-width="80px">
@@ -45,21 +42,12 @@
     </el-card>
     <!-- 结果区域 -->
     <el-card>
-      <my-test>
-        <!-- scope 收集了该插槽上所有的自定义属性的数据 -->
-        <!-- scope 是一个对象 包含了插槽上的所有数据  -->
-        <!-- <template slot="content" slot-scope="scope">内容1 {{scope.test}}</template> -->
-        <template v-slot:content="scope">内容1 {{scope.test}}</template>
-        <template slot="footer">底部1</template>
-      </my-test>
     </el-card>
   </div>
 </template>
 
 <script>
-import MyTest from '@/components/my-test.vue'
 export default {
-  components: { MyTest },
   data () {
     return {
       // 提交后的筛选条件数据
