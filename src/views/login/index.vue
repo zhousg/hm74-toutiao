@@ -56,32 +56,45 @@ export default {
   methods: {
     login () {
       // 对整个表单进行校验
-      this.$refs.loginForm.validate(valid => {
+      // this.$refs.loginForm.validate(valid => {
+      //   if (valid) {
+      //     // 提交登录请求  axios是基于primise封装的 post() 返回值一个promise对象
+      //     this.$http
+      //       .post(
+      //         'authorizations',
+      //         this.loginForm
+      //       )
+      //       .then(res => {
+      //         // res 是 响应对象  包含 后台返回的数据 res.data
+      //         // console.log(res.data) 去做什么事情？？？
+      //         // 1. 跳转到首页
+      //         // TODO 2. 保存用户的信息  用来判断登录的状态
+      //         // sessionStorage BOM对象  全局对象 作用是保存数据
+      //         // 是有有效期，当你关闭浏览后就失效
+      //         // sessionStorage.setItem(key,value) 存储数据 value字符串
+      //         // sessionStorage.getItem(key) 获取数据
+      //         // sessionStorage.removeItem(key) 删除数据
+      //         // sessionStorage.clear() 清空所有的数据
+      //         window.sessionStorage.setItem('hm74-toutiao', JSON.stringify(res.data.data))
+      //         this.$router.push('/')
+      //       })
+      //       .catch(() => {
+      //         // 提示
+      //         this.$message.error('手机号或验证码错误')
+      //       })
+      //   }
+      // })
+      this.$refs.loginForm.validate(async valid => {
         if (valid) {
-          // 提交登录请求  axios是基于primise封装的 post() 返回值一个promise对象
-          this.$http
-            .post(
-              'authorizations',
-              this.loginForm
-            )
-            .then(res => {
-              // res 是 响应对象  包含 后台返回的数据 res.data
-              // console.log(res.data) 去做什么事情？？？
-              // 1. 跳转到首页
-              // TODO 2. 保存用户的信息  用来判断登录的状态
-              // sessionStorage BOM对象  全局对象 作用是保存数据
-              // 是有有效期，当你关闭浏览后就失效
-              // sessionStorage.setItem(key,value) 存储数据 value字符串
-              // sessionStorage.getItem(key) 获取数据
-              // sessionStorage.removeItem(key) 删除数据
-              // sessionStorage.clear() 清空所有的数据
-              window.sessionStorage.setItem('hm74-toutiao', JSON.stringify(res.data.data))
-              this.$router.push('/')
-            })
-            .catch(() => {
-              // 提示
-              this.$message.error('手机号或验证码错误')
-            })
+          // 发请 promise对象 给你发请求
+          // try{ 业务逻辑 }catch(err){ 处理错误 }
+          try {
+            const res = await this.$http.post('authorizations', this.loginForm)
+            window.sessionStorage.setItem('hm74-toutiao', JSON.stringify(res.data.data))
+            this.$router.push('/')
+          } catch (err) {
+            this.$message.error('手机号或验证码错误')
+          }
         }
       })
     }
