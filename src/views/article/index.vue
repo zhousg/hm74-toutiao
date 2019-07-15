@@ -1,5 +1,6 @@
 <template>
   <div class="article-container">
+    <my-channel @input="fn"></my-channel>
     <!-- 筛选区域 -->
     <el-card>
       <div slot="header">
@@ -122,6 +123,10 @@ export default {
     this.getArticles()
   },
   methods: {
+    fn (data) {
+      console.log('fn')
+      console.log(data)
+    },
     // 编辑
     edit (id) {
       this.$router.push(`/publish?id=${id}`)
