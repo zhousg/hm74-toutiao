@@ -6,6 +6,7 @@ import JSONBig from 'json-bigint'
 const instance = axios.create({
   // 配置对象  基准路径  头部信息
   baseURL: 'http://ttapi.research.itcast.cn/mp/v1_0/',
+  // baseURL: 'http://toutiao.course.itcast.cn/mp/v1_0/',
   transformResponse: [(data) => {
     // 对 data 进行任意转换处理
     // data 应该是 null 使用JSONBig转换null会出现异常
