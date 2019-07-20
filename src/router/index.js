@@ -10,6 +10,7 @@ import Image from '@/views/image'
 import Publish from '@/views/publish'
 import Comment from '@/views/comment'
 import Setting from '@/views/setting'
+import Fans from '@/views/fans'
 
 Vue.use(VueRouter)
 
@@ -25,7 +26,8 @@ const router = new VueRouter({
         { name: 'image', path: '/image', component: Image },
         { name: 'publish', path: '/publish', component: Publish },
         { name: 'comment', path: '/comment', component: Comment },
-        { name: 'setting', path: '/setting', component: Setting }
+        { name: 'setting', path: '/setting', component: Setting },
+        { name: 'fans', path: '/fans', component: Fans }
       ]
     },
     // ... 很多规则
