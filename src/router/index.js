@@ -9,6 +9,7 @@ import NotFound from '@/views/404'
 import Image from '@/views/image'
 import Publish from '@/views/publish'
 import Comment from '@/views/comment'
+import Setting from '@/views/setting'
 
 Vue.use(VueRouter)
 
@@ -23,7 +24,8 @@ const router = new VueRouter({
         { name: 'article', path: '/article', component: Article },
         { name: 'image', path: '/image', component: Image },
         { name: 'publish', path: '/publish', component: Publish },
-        { name: 'comment', path: '/comment', component: Comment }
+        { name: 'comment', path: '/comment', component: Comment },
+        { name: 'setting', path: '/setting', component: Setting }
       ]
     },
     // ... 很多规则
